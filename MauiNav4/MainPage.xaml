@@ -11,8 +11,14 @@
                     Text="Add Item"
                     Command="{Binding AddItemCommand}"
                     HorizontalOptions="Fill" />
+            <Button Text="Add Book"
+                    Command="{Binding AddBookCommand}"
+                    HorizontalOptions="Fill" />
+            <Button Text="Save Books"
+                    Command="{Binding SaveBooksCommand}"
+                    HorizontalOptions="Fill" />
 
-            <CollectionView ItemsSource="{Binding Items}">
+            <CollectionView ItemsSource="{Binding Books}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame BorderColor="LightGray"
@@ -21,12 +27,14 @@
                                Margin="0,0,0,10">
                             <VerticalStackLayout>
                                 <Label Text="{Binding Id}" />
-                                <Label Text="{Binding Name}"
+                                <Label Text="{Binding Title}"
                                        FontSize="16" />
-                                <Button Text="View Details"
-                                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.ViewItemDetailsCommand}"
-                                        CommandParameter="{Binding .}"
-                                        HorizontalOptions="Start" />
+                                <HorizontalStackLayout Spacing="10">
+                                    <Label Text="Author:"
+                                           FontAttributes="Bold" />
+                                    <Label Text="{Binding Author}" />
+                                    <Label Text="{Binding PercentRead,StringFormat=P0}" />
+                                </HorizontalStackLayout>
                             </VerticalStackLayout>
                         </Frame>
                     </DataTemplate>

@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui;
+using MauiNav4.Services;
 using MauiNav4.ViewModels;
 using Microsoft.Extensions.Logging;
 
@@ -27,6 +28,8 @@ public static class MauiProgram
 
 		builder.Services.AddSingleton<MainPageViewModel>();
 		builder.Services.AddSingleton<ItemDetailsViewModel>();
+
+		builder.Services.AddSingleton<IBookDataSource, BookDataSource>();
 
         return builder.Build();
 	}
