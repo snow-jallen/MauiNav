@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiNav4.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,0"
+                             Spacing="25">
+
+            <Button x:Name="CounterBtn"
+                    Text="Add Item"
+                    Command="{Binding AddItemCommand}"
+                    HorizontalOptions="Fill" />
+
+            <CollectionView ItemsSource="{Binding Items}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="LightGray"
+                               CornerRadius="5"
+                               Padding="10"
+                               Margin="0,0,0,10">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Id}" />
+                                <Label Text="{Binding Name}"
+                                       FontSize="16" />
+                                <Button Text="View Details"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.ViewItemDetailsCommand}"
+                                        CommandParameter="{Binding .}"
+                                        HorizontalOptions="Start" />
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
