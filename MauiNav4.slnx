@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="MauiNav4.AppHost/MauiNav4.AppHost.csproj" />
   <Project Path="MauiNav4.ServiceDefaults/MauiNav4.ServiceDefaults.csproj" />
+  <Project Path="MauiNav4.Tests/MauiNav4.Tests.csproj" />
   <Project Path="MauiNav4/MauiNav4.csproj" />
 </Solution>
